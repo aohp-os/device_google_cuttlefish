@@ -80,8 +80,7 @@ PRODUCT_PRODUCT_PROPERTIES += \
 # spawn adbd by default without authorization for "adb logcat"
 ifeq ($(TARGET_BUILD_VARIANT),user)
 PRODUCT_PRODUCT_PROPERTIES += \
-    ro.adb.secure=0 \
-    ro.debuggable=1
+    ro.adb.secure=0
 
 PRODUCT_PACKAGES += \
     logpersist.start
@@ -254,13 +253,7 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.verified_boot.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.verified_boot.xml \
 
 ifneq ($(LOCAL_USE_VENDOR_AUDIO_CONFIGURATION),true)
-PRODUCT_COPY_FILES += \
-    frameworks/av/media/libeffects/data/audio_effects.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_effects.xml \
-    frameworks/av/services/audiopolicy/config/audio_policy_volumes.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_volumes.xml \
-    frameworks/av/services/audiopolicy/config/default_volume_tables.xml:$(TARGET_COPY_OUT_VENDOR)/etc/default_volume_tables.xml \
-    frameworks/av/services/audiopolicy/config/r_submix_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/r_submix_audio_policy_configuration.xml \
-    frameworks/av/services/audiopolicy/config/surround_sound_configuration_5_0.xml:$(TARGET_COPY_OUT_VENDOR)/etc/surround_sound_configuration_5_0.xml \
-    frameworks/av/services/audiopolicy/config/usb_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/usb_audio_policy_configuration.xml
+$(call inherit-product, frameworks/av/services/audiopolicy/audio_policy_config_vendor_1.mk)
 endif
 
 #
@@ -596,6 +589,9 @@ $(call soong_config_set_bool,cuttlefish_config,use_pci_ids,true)
 PRODUCT_PACKAGES += \
     com.android.hardware.threadnetwork \
     ThreadNetworkDemoApp
+
+# Enable adb debugging
+PRODUCT_PACKAGES += set_adb
 
 PRODUCT_CHECK_VENDOR_SEAPP_VIOLATIONS := true
 
