@@ -72,6 +72,12 @@ PRODUCT_SYSTEM_EXT_PROPERTIES += \
 $(call soong_config_set,cvd,RELEASE_SM_OPEN_DECLARED_PASSTHROUGH_HAL,$(RELEASE_SM_OPEN_DECLARED_PASSTHROUGH_HAL))
 PRODUCT_PACKAGES += com.google.cf.gralloc
 
-PRODUCT_PACKAGES += \
-    android.hardware.graphics.allocator-service.minigbm \
-    mapper.minigbm
+PRODUCT_PACKAGES += android.hardware.graphics.allocator-service.minigbm
+
+# When RELEASE_SM_OPEN_DECLARED_PASSTHROUGH_HAL is true, mapper.minigbm and its
+# vintf fragment are packaged inside com.google.cf.gralloc (see guest/hals/gralloc/Android.bp).
+# Listing mapper.minigbm here as well installs a duplicate vendor manifest and breaks
+# check_vintf_all (mapper @5.0/minigbm conflict).
+ifneq ($(RELEASE_SM_OPEN_DECLARED_PASSTHROUGH_HAL),true)
+PRODUCT_PACKAGES += mapper.minigbm
+endif

@@ -66,7 +66,7 @@ PRODUCT_VENDOR_PROPERTIES += \
 PRODUCT_IGNORE_ALL_ANDROIDMK := true
 
 # Compare target product name directly to avoid this from any product inherits aosp_cf.mk
-ifneq ($(filter aosp_cf_x86_64_phone aosp_cf_x86_64_phone_soong_system aosp_cf_x86_64_foldable,$(TARGET_PRODUCT)),)
+ifneq ($(filter aosp_cf_x86_64_phone aosp_cf_x86_64_phone_aohp aosp_cf_x86_64_phone_soong_system aosp_cf_x86_64_foldable,$(TARGET_PRODUCT)),)
 # TODO(b/350000347) Enable Soong defined system image from coverage build
 ifneq ($(CLANG_COVERAGE),true)
 ifneq ($(NATIVE_COVERAGE),true)
@@ -74,7 +74,7 @@ USE_SOONG_DEFINED_SYSTEM_IMAGE := true
 PRODUCT_SOONG_DEFINED_SYSTEM_IMAGE := aosp_shared_system_image
 endif # NATIVE_COVERAGE
 endif # CLANG_COVERAGE
-endif # aosp_cf_x86_64_phone aosp_cf_x86_64_foldable
+endif # aosp_cf_x86_64_phone aosp_cf_x86_64_phone_aohp aosp_cf_x86_64_foldable
 
 # For a gradual rollout, we're starting with just enabling this for aosp_cf_x86_64_phone and
 # not any of the other products that inherit from it.
