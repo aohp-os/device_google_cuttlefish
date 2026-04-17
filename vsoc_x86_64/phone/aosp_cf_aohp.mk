@@ -18,7 +18,8 @@ PRODUCT_ARTIFACT_PATH_REQUIREMENT_ALLOWED_LIST += \
     system/priv-app/AOHPAgentDriver/AOHPAgentDriver.apk \
     system/bin/aohp-containerd \
     system/etc/init/aohp-containerd.rc \
-    system/etc/aohp/rootfs-templates/alpine.tar.gz
+    system/etc/aohp/rootfs-templates/alpine.tar.gz \
+    system/etc/aohp/cgroup.conf
 
 # Soong-defined system image must list AOHP modules (see aosp_cf_aohp_system_image in generic/Android.bp).
 PRODUCT_SOONG_DEFINED_SYSTEM_IMAGE := aosp_cf_aohp_system_image
@@ -32,4 +33,5 @@ PRODUCT_PACKAGES += \
     AOHPAgentDriver \
     privapp-permissions-aohp \
     aohp-containerd \
-    aohp-rootfs-alpine
+    aohp-rootfs-alpine \
+    aohp_cgroup_conf
