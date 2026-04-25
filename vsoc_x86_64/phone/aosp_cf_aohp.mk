@@ -16,6 +16,7 @@ PRODUCT_ARTIFACT_PATH_REQUIREMENT_ALLOWED_LIST += \
     system/etc/permissions/privapp-permissions-aohp.xml \
     system/etc/permissions/privapp-permissions-aohp \
     system/priv-app/AOHPAgentDriver/AOHPAgentDriver.apk \
+    system/priv-app/AohpSecurityConsent/AohpSecurityConsent.apk \
     system/bin/aohp-containerd \
     system/etc/init/aohp-containerd.rc \
     system/etc/aohp/rootfs-templates/alpine.tar.gz \
@@ -31,6 +32,7 @@ PRODUCT_VENDOR_PROPERTIES += ro.aohp.virtual_display_policy=true
 # Kati install list must match Soong system image (file_list_diff).
 PRODUCT_PACKAGES += \
     AOHPAgentDriver \
+    AohpSecurityConsent \
     privapp-permissions-aohp \
     aohp-containerd \
     aohp-rootfs-alpine \
