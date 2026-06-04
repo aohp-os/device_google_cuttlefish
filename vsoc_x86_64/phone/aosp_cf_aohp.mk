@@ -18,7 +18,6 @@ PRODUCT_ARTIFACT_PATH_REQUIREMENT_ALLOWED_LIST += \
     system/priv-app/AOHPAgentDriver/AOHPAgentDriver.apk \
     system/app/AOHPTaskDriver/AOHPTaskDriver.apk \
     system/priv-app/AohpSecurityConsent/AohpSecurityConsent.apk \
-    system/app/MobileClawApp/MobileClawApp.apk \
     system/bin/aohp-containerd \
     system/etc/init/aohp-containerd.rc \
     system/etc/aohp/rootfs-templates/alpine.tar.gz \
@@ -36,7 +35,6 @@ PRODUCT_PACKAGES += \
     AOHPAgentDriver \
     AOHPTaskDriver \
     AohpSecurityConsent \
-    MobileClawApp \
     privapp-permissions-aohp \
     aohp-containerd \
     aohp-rootfs-alpine \
