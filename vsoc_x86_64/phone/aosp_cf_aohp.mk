@@ -30,6 +30,10 @@ PRODUCT_SOONG_DEFINED_SYSTEM_IMAGE := aosp_cf_aohp_system_image
 # vendor default.prop is fine for read-only flags consumed by framework.
 PRODUCT_VENDOR_PROPERTIES += ro.aohp.virtual_display_policy=true
 
+# Default to gesture navigation (gestural overlay on product partition).
+PRODUCT_COPY_FILES += \
+    device/google/cuttlefish/vsoc_x86_64/phone/aohp_overlay_config.xml:$(TARGET_COPY_OUT_PRODUCT)/overlay/config/config.xml
+
 # Kati install list must match Soong system image (file_list_diff).
 PRODUCT_PACKAGES += \
     AOHPAgentDriver \

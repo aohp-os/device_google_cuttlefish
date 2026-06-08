@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  AOHP Cuttlefish phone: default to fully gestural navigation.
+-->
+<config>
+    <overlay package="com.android.internal.systemui.navbar.gestural" enabled="true" />
+    <overlay package="com.android.internal.systemui.navbar.threebutton" enabled="false" />
+</config>
